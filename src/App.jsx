@@ -3,6 +3,7 @@ import "./theme.css";
 import { FaMoon } from "react-icons/fa6";
 import { IoSunnyOutline } from "react-icons/io5";
 import { useReducer } from "react";
+import { Link } from "react-router-dom";
 
 const initialData = {
   feild: "React ",
@@ -101,6 +102,8 @@ function App() {
           {data.theme === "light" ? <FaMoon /> : <IoSunnyOutline />}
         </button>
       </div>
+      <br />
+      <button><Link to="/home">Go to Home</Link></button>
     </div>
   );
 }
