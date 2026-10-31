@@ -1,109 +1,78 @@
 import "./App.css";
 import "./theme.css";
-// import { FaMoon } from "react-icons/fa6";
-// import { IoSunnyOutline } from "react-icons/io5";
+import { FaMoon } from "react-icons/fa6";
+import { IoSunnyOutline } from "react-icons/io5";
 // import { useReducer } from "react";
 import { Link } from "react-router-dom";
 import {useContext} from "react";
 import Data from "./context/data";
 
-// const initialData = {
-//   feild: "React ",
-//   level: "jenior",
-//   counter: 0,
-//   theme: "light",
-// };
-
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case "CHANGE_FEILD":
-//       return { ...state, feild: action.payload };
-//     case "CHANGE_LEVEL":
-//       return { ...state, level: action.payload };
-//     case "INCREASE_COUNTER":
-//       return { ...state, count: action.payload };
-//     case "CHANGE_THEME":
-//       return { ...state, theme: action.payload };
-//     default:
-//       return state;
-//   }
-// };
 
 function App() {
   // const [data, dispatch] = useReducer(reducer, initialData);
-  const {feild , changeFeild ,level , count , theme} = useContext(Data);
+  const {feild , changeField ,level , changeLevel , count , changeCounter , theme, changeTheme} = useContext(Data);
 
   return (
     <div className={`App ${theme}`}>
       <h1>My feild is {feild}</h1>
-      {/* <button
-        onClick={() => {
-          dispatch({ type: "CHANGE_FEILD", payload: "Vue Js" });
-        }}
-      >
+      <button onClick={() => {changeField()}}>
         change feild
-      </button> */}
+      </button>
       <br />
       <br />
       <h1>Iam a {level}</h1>
-      {/* <button
-        onClick={() => {
-          dispatch({ type: "CHANGE_LEVEL", payload: "senior" });
+      <button
+        onClick={() => {changeLevel()
         }}
       >
         change level
-      </button> */}
+      </button>
       <br />
       <br />
       <button
-        // onClick={() => {
-        //   dispatch({ type: "INCREASE_COUNTER", payload: count + 1 });
-        // }}
-      >
+        onClick={() => {
+          changeCounter(); }}>
         counter {count}
       </button>
       <br />
       <br />
       <div>
-        {/* <button
+        <button
           onClick={() => {
-            dispatch({ type: "CHANGE_THEME", payload: "light" });
+            changeTheme('light');
           }}
           style={{ marginRight: "20px" }}
         >
           light
-        </button> */}
+        </button>
 
-        {/* <button
+        <button
           onClick={() => {
-            dispatch({ type: "CHANGE_THEME", payload: "dark" });
+            changeTheme('dark');
           }}
           style={{ marginRight: "20px" }}
         >
           dark
-        </button> */}
+        </button>
 
-        {/* <button
+        <button
           onClick={() => {
-            dispatch({ type: "CHANGE_THEME", payload: "pink" });
+            changeTheme('pink');
           }}
         >
           pink
-        </button> */}
+        </button>
       </div>
       <div>
         <br />
         <br />
-        {/* <button
+        <button
           onClick={() => {
-            dispatch({
-              type: "CHANGE_THEME",
-              payload: theme === "light" ? "dark" : "light",
-            });
+            changeTheme(theme === "light" ? "dark" : "light");
           }}
         >
           {theme === "light" ? <FaMoon /> : <IoSunnyOutline />}
-        </button> */}
+        </button>
       </div>
       <br />
       <button><Link to="/home">Go to Home</Link></button>
